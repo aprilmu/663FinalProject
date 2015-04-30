@@ -402,7 +402,8 @@
                 \PY{c}{\PYZsh{}Calculate the probability distribution}
                 \PY{n}{prob} \PY{o}{=} \PY{n}{min\PYZus{}dist}\PY{o}{/}\PY{n}{phi}
                 \PY{c}{\PYZsh{}Select the next centroid using the probability distribution calculated}
-                \PY{n}{centers} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{vstack}\PY{p}{(}\PY{p}{[}\PY{n}{centers}\PY{p}{,} \PY{n}{data}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{choice}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n}{data}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{p} \PY{o}{=} \PY{n}{prob}\PY{p}{)}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+                \PY{n}{centers} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{vstack}\PY{p}{(}\PY{p}{[}\PY{n}{centers}\PY{p}{,} \PY{n}{data}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{choice}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n}{data}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,} 
+                                                                    \PY{n}{p} \PY{o}{=} \PY{n}{prob}\PY{p}{)}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{]}\PY{p}{)}
             \PY{k}{return} \PY{n}{centers}
 \end{Verbatim}
 
@@ -428,7 +429,8 @@
                 \PY{c}{\PYZsh{}Calculate the probability distribution}
                 \PY{n}{prob} \PY{o}{=} \PY{n}{min\PYZus{}dist}\PY{o}{/}\PY{n}{phi}
                 \PY{c}{\PYZsh{}Select the next centroid using the probability distribution calculated}
-                \PY{n}{centers} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{vstack}\PY{p}{(}\PY{p}{[}\PY{n}{centers}\PY{p}{,} \PY{n}{data}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{choice}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n}{data}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{p} \PY{o}{=} \PY{n}{prob}\PY{p}{)}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+                \PY{n}{centers} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{vstack}\PY{p}{(}\PY{p}{[}\PY{n}{centers}\PY{p}{,} \PY{n}{data}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{choice}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n}{data}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,} 
+                                                                    \PY{n}{p} \PY{o}{=} \PY{n}{prob}\PY{p}{)}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{]}\PY{p}{)}
             \PY{k}{return} \PY{n}{centers}
 \end{Verbatim}
 
@@ -465,7 +467,8 @@
             \PY{n}{distance} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{d2}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
             \PY{n}{min\PYZus{}index} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{distance}\PY{o}{.}\PY{n}{shape}\PY{p}{)}
             \PY{n}{min\PYZus{}index}\PY{p}{[}\PY{n+nb}{range}\PY{p}{(}\PY{n}{distance}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{argmin}\PY{p}{(}\PY{n}{distance}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{1}
-            \PY{n}{weights} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{count\PYZus{}nonzero}\PY{p}{(}\PY{n}{min\PYZus{}index}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{n}{j}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{centers}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
+            \PY{n}{weights} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{count\PYZus{}nonzero}\PY{p}{(}\PY{n}{min\PYZus{}index}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{n}{j}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} 
+                                \PY{n+nb}{range}\PY{p}{(}\PY{n}{centers}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
             \PY{c}{\PYZsh{}Recluster the weighted points into k clusters using kmeans++}
             \PY{n}{new\PYZus{}centers} \PY{o}{=} \PY{n}{centers}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{choice}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n}{centers}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,} \PY{p}{:}\PY{p}{]}
             \PY{n}{centers2} \PY{o}{=} \PY{n}{centers}
@@ -576,7 +579,8 @@
           \PY{c}{\PYZsh{}Plot clusters}
           \PY{n}{cols}\PY{o}{=}\PY{n+nb}{iter}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{y}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
           \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range} \PY{p}{(}\PY{n}{k}\PY{p}{)}\PY{p}{:}
-              \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{data1}\PY{p}{[}\PY{n}{min\PYZus{}index}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{data1}\PY{p}{[}\PY{n}{min\PYZus{}index}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n+nb}{next}\PY{p}{(}\PY{n}{cols}\PY{p}{)}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{data1}\PY{p}{[}\PY{n}{min\PYZus{}index}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} 
+                          \PY{n}{data1}\PY{p}{[}\PY{n}{min\PYZus{}index}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n+nb}{next}\PY{p}{(}\PY{n}{cols}\PY{p}{)}\PY{p}{)}
           \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{centers}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{centers}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{x}\PY{l+s}{\PYZsq{}}\PY{p}{)}
 \end{Verbatim}
 
@@ -603,7 +607,8 @@
           \PY{c}{\PYZsh{}Plot clusters}
           \PY{n}{cols}\PY{o}{=}\PY{n+nb}{iter}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{y}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
           \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range} \PY{p}{(}\PY{n}{k}\PY{p}{)}\PY{p}{:}
-              \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{data1}\PY{p}{[}\PY{n}{min\PYZus{}index}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{data1}\PY{p}{[}\PY{n}{min\PYZus{}index}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n+nb}{next}\PY{p}{(}\PY{n}{cols}\PY{p}{)}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{data1}\PY{p}{[}\PY{n}{min\PYZus{}index}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} 
+                          \PY{n}{data1}\PY{p}{[}\PY{n}{min\PYZus{}index}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n+nb}{next}\PY{p}{(}\PY{n}{cols}\PY{p}{)}\PY{p}{)}
           \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{centers}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{centers}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{x}\PY{l+s}{\PYZsq{}}\PY{p}{)}
 \end{Verbatim}
 
@@ -630,7 +635,8 @@
           \PY{c}{\PYZsh{}Plot clusters}
           \PY{n}{cols}\PY{o}{=}\PY{n+nb}{iter}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{y}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
           \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range} \PY{p}{(}\PY{n}{k}\PY{p}{)}\PY{p}{:}
-              \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{data1}\PY{p}{[}\PY{n}{min\PYZus{}index}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{data1}\PY{p}{[}\PY{n}{min\PYZus{}index}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n+nb}{next}\PY{p}{(}\PY{n}{cols}\PY{p}{)}\PY{p}{)}
+              \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{data1}\PY{p}{[}\PY{n}{min\PYZus{}index}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} 
+                          \PY{n}{data1}\PY{p}{[}\PY{n}{min\PYZus{}index}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n+nb}{next}\PY{p}{(}\PY{n}{cols}\PY{p}{)}\PY{p}{)}
           \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{centers}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{centers}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{x}\PY{l+s}{\PYZsq{}}\PY{p}{)}
 \end{Verbatim}
 
@@ -654,6 +660,9 @@
     \end{center}
     { \hspace*{\fill} \\}
     
+    From the output, we can see that all three algorithms are working as
+expected.
+
 
     \subsection{Comparison of Algorithms}
 
@@ -824,7 +833,8 @@ Cython.
          \PY{n+nd}{@cython.boundscheck}\PY{p}{(}\PY{n+nb+bp}{False}\PY{p}{)}
          \PY{n+nd}{@cython.wraparound}\PY{p}{(}\PY{n+nb+bp}{False}\PY{p}{)}
          
-         \PY{k}{def} \PY{n+nf}{cminimum\PYZus{}distance}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{ndarray}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{float64\PYZus{}t}\PY{p}{,} \PY{n}{ndim}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{]} \PY{n}{p}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{ndarray}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{float64\PYZus{}t}\PY{p}{,} \PY{n}{ndim}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{]} \PY{n}{centers}\PY{p}{)}\PY{p}{:}
+         \PY{k}{def} \PY{n+nf}{cminimum\PYZus{}distance}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{ndarray}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{float64\PYZus{}t}\PY{p}{,} \PY{n}{ndim}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{]} \PY{n}{p}\PY{p}{,} 
+                               \PY{n}{np}\PY{o}{.}\PY{n}{ndarray}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{float64\PYZus{}t}\PY{p}{,} \PY{n}{ndim}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{]} \PY{n}{centers}\PY{p}{)}\PY{p}{:}
              
              \PY{n}{cdef} \PY{n+nb}{int} \PY{n}{min\PYZus{}index} \PY{o}{=} \PY{l+m+mi}{0}
              \PY{n}{cdef} \PY{n+nb}{float} \PY{n}{min\PYZus{}dist} \PY{o}{=} \PY{l+m+mf}{1.79769313486e+308}
@@ -906,7 +916,8 @@ Cython.
                  \PY{c}{\PYZsh{}Calculate the probability distribution}
                  \PY{n}{prob} \PY{o}{=} \PY{n}{min\PYZus{}dist}\PY{o}{/}\PY{n}{phi}
                  \PY{c}{\PYZsh{}Select the next centroid using the probability distribution calculated}
-                 \PY{n}{centers} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{vstack}\PY{p}{(}\PY{p}{[}\PY{n}{centers}\PY{p}{,} \PY{n}{data}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{choice}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n}{data}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{p} \PY{o}{=} \PY{n}{prob}\PY{p}{)}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{centers} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{vstack}\PY{p}{(}\PY{p}{[}\PY{n}{centers}\PY{p}{,} \PY{n}{data}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{choice}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n}{data}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,} 
+                                                                     \PY{n}{p} \PY{o}{=} \PY{n}{prob}\PY{p}{)}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{]}\PY{p}{)}
              \PY{k}{return} \PY{n}{centers}
 \end{Verbatim}
 
@@ -924,10 +935,6 @@ Cython.
 
     It seems that in this case vectorization increases the efficiency the
 most.
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}}]:} 
-\end{Verbatim}
 
 
     % Add a bibliography block to the postdoc
